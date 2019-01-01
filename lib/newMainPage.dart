@@ -1,32 +1,43 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:share/share.dart';
 
-const dadJokeApi = "https://icanhazdadjoke.com/";
-const httpHeaders = const {
-  'User-Agent': 'DadJokes (https://github.com/timsneath/dadjokes)',
-  'Accept': 'application/json',
-};
+import 'package:dadjokes/globals.dart';
 
 const jokeTextStyle = const TextStyle(
-    fontFamily: 'Patrick Hand',
-    fontSize: 36,
-    fontStyle: FontStyle.normal,
-    fontWeight: FontWeight.normal);
+  fontFamily: 'Patrick Hand',
+  fontSize: 36,
+  fontStyle: FontStyle.normal,
+  fontWeight: FontWeight.normal,
+);
 
-class MainPage extends StatefulWidget {
-  MainPage({Key key, this.title}) : super(key: key);
+class NewMainPage extends StatefulWidget {
+  NewMainPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  MainPageState createState() => MainPageState();
+  NewMainPageState createState() => NewMainPageState();
 }
 
-class MainPageState extends State<MainPage> {
+class JokeWidget extends StatelessWidget {
+  final 
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
+    );
+  }
+}
+
+
+class NewMainPageState extends State<NewMainPage> {
+
+  jokeWidgets = 
   Future<String> _response;
   String _displayedJoke = '';
 
@@ -134,8 +145,10 @@ class MainPageState extends State<MainPage> {
           )
         ],
       ),
-      body: Center(
-        child: SafeArea(child: _jokeBody()),
+      body: PageView.builder(
+        controller: PageController(),
+        itemBuilder: (context, index) =>
+          jokeWidget[index],
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _refreshAction,
