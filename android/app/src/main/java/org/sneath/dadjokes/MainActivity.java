@@ -1,7 +1,6 @@
-package com.yourcompany.dadjokes;
+package org.sneath.dadjokes;
 
 import android.os.Bundle;
-
 import io.flutter.app.FlutterActivity;
 import io.flutter.plugins.GeneratedPluginRegistrant;
 
