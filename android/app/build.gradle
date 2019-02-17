@@ -22,7 +22,7 @@ if (flutterVersionName == null) {
 }
 
 if (System.getenv("CI")) {
-    def buildNumber = System.getenv("NEVERCODE_BUILD_NUMBER")
+    def buildNumber = System.getenv("BUILD_NUMBER")
     if (buildNumber != null) {
         flutterVersionName = '2.0.' + buildNumber 
         flutterVersionCode = (buildNumber.toInteger() + 200).toString()
