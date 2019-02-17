@@ -23,8 +23,14 @@ if (flutterVersionName == null) {
 
 if (System.getenv("CI")) {
     def buildNumber = System.getenv("NEVERCODE_BUILD_NUMBER")
-    flutterVersionName = '2.0.' + buildNumber 
-    flutterVersionCode = (buildNumber.toInteger() + 200).toString()
+    if (buildNumber != null) {
+        flutterVersionName = '2.0.' + buildNumber 
+        flutterVersionCode = (buildNumber.toInteger() + 200).toString()
+    }
+    else { // hardcode this as a test
+        flutterVersionName = '2.0.1'
+        flutterVersionCode = '200'
+    }
 }
 
 apply plugin: 'com.android.application'
