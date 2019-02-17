@@ -2,6 +2,9 @@ name: dadjokes
 version: 2.0.0
 description: A collection of terrible jokes.
 
+environment:
+  sdk: ">=2.0.0 <3.0.0"
+
 dependencies:
   flutter:
     sdk: flutter
