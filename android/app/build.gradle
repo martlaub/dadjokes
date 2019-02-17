@@ -21,7 +21,11 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
-
+if (System.getenv("CI")) {
+    def buildNumber = System.getenv("NEVERCODE_BUILD_NUMBER")
+    flutterVersionName = '2.0.' + buildNumber 
+    flutterVersionCode = (buildNumber.toInteger() + 200).toString()
+}
 
 apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
@@ -38,14 +42,8 @@ android {
         minSdkVersion 16
         targetSdkVersion 28
 
-        if (System.getenv("CI")) {
-            def buildNumber = System.getenv("NEVERCODE_BUILD_NUMBER")
-            versionName = "2.0." + buildNumber 
-            versionCode = 200 + Integer.valueOf(buildNumber)
-        } else  {
-            versionCode = flutterVersionCode.toInteger()
-            versionName = flutterVersionName
-        }
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
