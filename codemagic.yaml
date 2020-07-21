@@ -2,9 +2,9 @@ workflows:
         package-workflow:
             name: Package Workflow
             environment:
-            vars:
-                CREDENTIALS: <your encrypted ~/.pub-cache/credentials.json>
-            flutter: stable
+                    vars:
+                        CREDENTIALS: <your encrypted ~/.pub-cache/credentials.json>
+                    flutter: stable
             scripts:
             - flutter packages pub get
             - echo $CREDENTIALS | base64 --decode > "$FLUTTER_ROOT/.pub-cache/credentials.json"
