@@ -1,6 +1,6 @@
 workflows:
         package-workflow:
-            name: package-workflow
+            name: Package Workflow
             environment:
             vars:
                 CREDENTIALS: <your encrypted ~/.pub-cache/credentials.json>
