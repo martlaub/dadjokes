@@ -144,3 +144,4 @@ workflows:
       app_store_connect:   # https://docs.codemagic.io/publishing-yaml/distribution              
         apple_id: $APPLE_ID    
         password: $APPLE_APP_SPECIFIC_PASSWORD
+invalid
